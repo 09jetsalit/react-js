@@ -6,7 +6,7 @@ import "./App.css";
 const App = () => {
   const [members, setMembers] = useState([]);
 
-  const [singleMember, setSingleMember] = useState({});
+  // const [singleMember, setSingleMember] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -22,18 +22,18 @@ const App = () => {
     getData();
   }, []);
 
-  const getDataById = async (id) => {
-    // call axios here
-    const response = await axios.get(
-      `https://jsd5-mock-backend.onrender.com/members/${id}`
-    );
+  // const getDataById = async (id) => {
+  //   // call axios here
+  //   const response = await axios.get(
+  //     `https://jsd5-mock-backend.onrender.com/members/${id}`
+  //   );
 
-    if (response.status === 200 && response.data) {
-      // set data here
-      const { data } = response;
-      setSingleMember({ ...data });
-    }
-  };
+  //   if (response.status === 200 && response.data) {
+  //     // set data here
+  //     const { data } = response;
+  //     setSingleMember({ ...data });
+  //   }
+  // };
 
   return (
     <div className="container">
@@ -66,13 +66,13 @@ const App = () => {
             Bob Brown
           </option>
         </select>
-        <Card
+        {/* <Card
           id={singleMember.id}
           name={singleMember.name}
           age={singleMember.age}
           weight={singleMember.weight}
           status={singleMember.status}
-        />
+        /> */}
       </div>
     </div>
   );

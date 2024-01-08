@@ -9,6 +9,20 @@ function App() {
       running: 40,
       status: "Balance",
     },
+    {
+      name: "Mock J",
+      age: 99,
+      weight: 66,
+      running: 40,
+      status: "Balance",
+    },
+    {
+      name: "Mock J",
+      age: 99,
+      weight: 66,
+      running: 40,
+      status: "Balance",
+    },
   ];
   return (
     <div id="app">

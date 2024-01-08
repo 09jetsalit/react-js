@@ -2,37 +2,39 @@ import React, { useState } from 'react';
 
 function App() {
     // adding state here.
+    const [change , setChange] = useState()
 
-  const handleClick = (value) => {
-    // code here.
-  };
+  // const handleClick = (value) => {
+  //   // code here.
+    
+  // };
 
   return (
     <div>
-      <button>Fullname</button>
+      <button onClick={() => setChange('Fullname')}>Fullname</button>
       <button>Age</button>
       <button>Picture</button>
-      <DisplayInfo />
+      <DisplayInfo change={change} />
     </div>
   );
 }
 
-function DisplayInfo(props) {
+function DisplayInfo({change}) {
 
-  let ___;
-  if (___ === 'Fullname') {
-    ___ = <h2>John Doe</h2>;
-  } else if (___ === 'Age') {
-    ___ = <h2>30</h2>;
-  } else if (___ === 'Picture') {
-    ___ = <img src="https://via.placeholder.com/150" alt="Placeholder" />;
+  let returnHTML;
+  if (change === 'Fullname') {
+    returnHTML = <h2>John Doe</h2>;
+  } else if (change === 'Age') {
+    returnHTML = <h2>30</h2>;
+  } else if (change === 'Picture') {
+    returnHTML = <img src="https://via.placeholder.com/150" alt="Placeholder" />;
   } else {
-    ___ = <p>Please select an option.</p>;
+    returnHTML = <p>Please select an option.</p>;
   }
 
   return (
     <div>
-      {___}
+      {returnHTML}
     </div>
   );
 }

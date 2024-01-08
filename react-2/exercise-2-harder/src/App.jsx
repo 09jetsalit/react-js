@@ -26,31 +26,98 @@ function App() {
     }
   ];
 
+//   return (
+//     <div id="app">
+//       <h1>Enter Data</h1>
+//       <PostContainer posts = {posts} />
+//       <FeedSection posts = {posts} />
+//     </div>
+//   );
+// }
+
+// const PostContainer = ({posts}) => {
+//   return (
+//     <div className="post-container">
+//       {posts.map((post , index) => (
+//         <Post key={index} post = {posts} />
+//       ))}
+//     </div>
+//   );
+// };
+
+// const FeedSection = ({posts}) => {
+//   return (
+//     <div className="feed-section">
+//       {posts.map((post , index) => (
+//         <Post key={index} post = {post} />
+//       ))}
+//     </div>
+//   );
+// };
+
+// const Post = ({post}) => {
+//   return (
+//     <div className="post">
+//       <img src={post.avatar} alt="user-avatar" />
+//       <div className="post-content">
+//         <div className="post-header">
+//           <span className="author">{post.author}</span>
+//           <span className="time">{post.time}</span>
+//         </div>
+//         <p className="content">{post.content}</p>
+//         <img src={post.image} alt="post image" className="post-image" />
+//       </div>
+//     </div>
+
+//   );
+// };
+
+// export default App;
+
+
   return (
     <div id="app">
       <h1>Enter Data</h1>
-      <PostContainer />
-      <FeedSection />
+      <PostContainer posts={posts} />
+      <FeedSection posts={posts} />
     </div>
   );
 }
 
-const PostContainer = () => {
+const PostContainer = ({ posts }) => {
   return (
-    
+    <div className="post-container">
+      {posts.map((post, index) => (
+        <Post key={index} post={post} />
+      ))}
+    </div>
   );
 };
 
-const FeedSection = () => {
+const FeedSection = ({ posts }) => {
   return (
-    
+    <div className="feed-section">
+      {posts.map((post, index) => (
+        <Post key={index} post={post} />
+      ))}
+    </div>
   );
 };
 
-const Post = () => {
+const Post = ({ post }) => {
   return (
-
-  )
-}
+    <div className="post">
+      <img src={post.avatar} alt="User Avatar" />
+      <div className="post-content">
+        <div className="post-header">
+          <span className="author">{post.author}</span>
+          <span className="time">{post.time}</span>
+        </div>
+        <p className="content">{post.content}</p>
+        <img src={post.image} alt="Post Image" className="post-image" />
+      </div>
+    </div>
+  );
+};
 
 export default App;

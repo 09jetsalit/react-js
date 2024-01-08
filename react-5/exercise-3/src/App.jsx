@@ -19,7 +19,9 @@ const App = () => {
     getData();
   }, [reload]);
 
-  const removeData = () => {};
+  const removeData = () => {
+    
+  };
 
   return (
     <div className="container">

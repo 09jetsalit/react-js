@@ -1,4 +1,6 @@
+import { createContext } from "react";
 import "./App.css";
+import Post from "./Post";
 
 function App() {
   const posts = [
@@ -77,6 +79,9 @@ const FeedSection = ({ postData }) => {
     </div>
   );
 };
+
+const CustomeContext = createContext({});
+
 
 const Post = (props) => {
   const { author, avatar, time, content, image } = props;
