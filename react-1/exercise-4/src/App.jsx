@@ -45,7 +45,8 @@ const RunningForm = () => {
 
 const TableDisplay = () => {
   let datarender = [
-    { name: "erfre", age: "66", weight: "70", running: "30", status: "good" }, { name: "dfe", age: "55", weight: "44", running: "33", status: "good" }
+    { name: "erfre", age: "66", weight: "70", running: "30", status: "good" },
+    { name: "dfe", age: "55", weight: "44", running: "33", status: "good" },
   ];
   return (
     <>
@@ -60,13 +61,13 @@ const TableDisplay = () => {
         </tr>
         <tbody>
           {datarender.map((data, index) => (
-            <tr key = {index}>
-            <td>{data.name}</td>
-            <td>{data.age}</td>
-            <td>{data.weight}</td>
-            <td>{data.running}</td>
-            <td>{data.status}</td>
-          </tr>
+            <tr key={index}>
+              <td>{data.name}</td>
+              <td>{data.age}</td>
+              <td>{data.weight}</td>
+              <td>{data.running}</td>
+              <td>{data.status}</td>
+            </tr>
           ))}
         </tbody>
       </table>

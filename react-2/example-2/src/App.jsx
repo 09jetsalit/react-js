@@ -61,7 +61,8 @@ const RunningForm = () => {
   );
 };
 
-const TableDisplay = ({ data }) => {
+const TableDisplay = (props) => {
+  const data = props.data
   return (
     <>
       <h1>Entered Data</h1>

@@ -6,6 +6,10 @@ function App() {
     alert("Welcome to website");
   };
 
+  const saygoodbye =()=> {
+    alert("Goodbye")
+  };
+
   const handleChange = (value) => {
     console.log(value);
   };
@@ -14,6 +18,7 @@ function App() {
     <div id="app">
       <input type="text" onChange={(e) => handleChange(e.target.value)} />
       <button onClick={welcome}>Welcome</button>
+      <button onClick={() => saygoodbye()}>GoodBye</button>
     </div>
   );
 }

@@ -24,6 +24,7 @@ function App() {
       status: "Good",
     },
   ];
+
   const members2 = [
     {
       name: "Mock J",
@@ -47,14 +48,14 @@ function App() {
       status: "Good",
     },
   ];
-
+  
   const allmembers = [...members1 , ...members2]
 
   return (
     <div id="app">
       <h1>Enter Data</h1>
       <RunningForm />
-      <TableDisplay data={allmembers} />
+      <TableDisplay data= {allmembers} />
     </div>
   );
 }
@@ -88,6 +89,7 @@ const RunningForm = () => {
 };
 
 const TableDisplay = ({data}) => {
+  // const data = props.data;
   return (
     <>
       <h1>Entered Data</h1>
@@ -101,29 +103,18 @@ const TableDisplay = ({data}) => {
             <th>Good Running</th>
           </tr>
         </thead>
-        <TableBody tablebodydata = {data} />
+        <TableBody data={data} />
       </table>
     </>
   );
 };
 
-// const TableBody = ({tablebodydata}) => {
-//   {tablebodydata.map((todo , index) => {
-//     return (
-//       <tr key = {index}>
-//         <td>{todo.name}</td>
-//         <td>{todo.age}</td>
-//         <td>{todo.weight}</td>
-//         <td>{todo.running}</td>
-//         <td>{todo.status}</td>
-//       </tr> 
-//     )})}
-//  }
 
- const TableBody = ({ tablebodydata }) => {
+const TableBody = ({data}) => {
+  // const data = props.data;
   return (
     <tbody>
-      {tablebodydata.map((todo, index) => (
+      {data.map((todo, index) => (
         <tr key={index}>
           <td>{todo.name}</td>
           <td>{todo.age}</td>
@@ -137,27 +128,7 @@ const TableDisplay = ({data}) => {
 };
 
 
+
   
-    
- 
-
-
-
-// const TableBody = ({ tablebodydata }) => {
-//   return (
-//     <tbody>
-//       {tablebodydata.data.map((todo, index) => (
-//         <tr key={index}>
-//           <td>{todo.name}</td>
-//           <td>{todo.age}</td>
-//           <td>{todo.weight}</td>
-//           <td>{todo.running}</td>
-//           <td>{todo.status}</td>
-//         </tr>
-//       ))}
-//     </tbody>
-//   );
-// };
-
 
 export default App;

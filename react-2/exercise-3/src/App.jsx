@@ -3,73 +3,74 @@ import "./App.css";
 
 function App() {
   const { get, remove } = usePost();
+
   const data = get();
 
   return (
     <div id="app">
+      <h1>Enter Data</h1>
       <PostContainer />
-      <FeedSection posts={data} removeHandler={remove} />
+      <FeedSection data = {data} removeHanderler = {remove} />
     </div>
   );
 }
 
 const PostContainer = () => {
   return (
-    <div className="post-container">
-      <div className="post-header">
-        <img className="post-avatar" src="avatar.jpg" alt="Your Avatar" />
-        <div className="post-author">You</div>
-      </div>
-      <div className="post-content">
-        <textarea
-          className="post-input"
-          placeholder="What's on your mind?"
-        ></textarea>
-      </div>
-      <div className="post-actions">
-        <button className="post-button">Post</button>
-      </div>
+<>
+<div className="post-container">
+    <div className="post-header">
+      <img className="post-avatar" src="avatar.jpg" alt="Your Avatar" />
+      <div className="post-author">You</div>
     </div>
-  );
-};
+    <div className="post-content">
+      <textarea
+        className="post-input"
+        placeholder="What's on your mind?"
+      ></textarea>
+    </div>
+    <div className="post-actions">
+      <button className="post-button">Post</button>
+    </div>
+  </div></>
+  )
+}
 
-const FeedSection = ({ posts, removeHandler }) => {
+const FeedSection = ({data , removeHanderler}) => {
   return (
-    <div className="feed">
-      {posts.map((post) => {
-        return (
-          <Post
-            key={post.id}
-            id={post.id}
-            author={post.author}
-            time={post.time}
-            content={post.content}
-            avatar={post.avatar}
-            image={post.image}
-            removeHandler={removeHandler}
-          />
-        );
-      })}
-    </div>
-  );
-};
+    <>
+    <Post data={data} removeHanderler={removeHanderler} />
+    </>
+  )
+}
 
-const Post = (props) => {
-  const { id, author, time, content, avatar, image, removeHandler } = props;
-
+const Post = ({data , removeHanderler}) => {
   return (
-    <div className="post">
-      <div className="post-header">
-        <img className="post-avatar" src={avatar} alt="User 1" />
-        <div>
-          <div className="post-author">{author}</div>
-          <div className="post-time">{time}</div>
-        </div>
+    <>
+    {data.map((todo , index) => (
+      <div className="post" key = {index}>
+          <div className="post-header">
+            <img
+            className="post-avatar"
+            src={todo.avatar}
+            alt={todo.author}
+            />
+          <div>
+          <div className="post-author">{todo.author}</div>
+          <div className="post-time">{todo.time}</div>
       </div>
-      <div className="post-content">{content}</div>
-      <img className="post-image" src={image} alt="Post 1" />
-      <button onClick={() => removeHandler(id)}>DELETE</button>
-    </div>
+      </div>
+      <div className="post-content">{todo.content}</div>  
+      <img
+        class="post-image"
+        src={todo.image}
+        alt={`Post ${index + 1}`}
+      />
+      <button onClick={() => removeHanderler(todo.id)}>DELETE</button> 
+      </div>     
+    ))}
+    </>
+    
   );
 };
 
