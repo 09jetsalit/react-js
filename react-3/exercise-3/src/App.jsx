@@ -1,58 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const temperature = 12;
+  const [temperature, setTemperature] = useState(30);
+
   return (
     <div id="app">
-      <Header temp={temperature} />
+      <Header tempContent={temperature} />
       <Content tempContent={temperature} />
-      <Footer />
+      <Footer setTemperature={setTemperature} temperature={temperature} />
     </div>
   );
 }
 
-function Header(props) {
-  const tempInHeader = props.temp;
+function Header({ tempContent }) {
   return (
-    // Code for Header
-    // <Header />
     <header>
       <span>Turn on / off</span>
-      <p>Current Temperature: {tempInHeader}</p>
+      <p>Current Temperature: {tempContent} °C</p>
     </header>
   );
 }
 
-function Content(props) {
-  const tempInContent = props.tempContent;
+function Content({ tempContent }) {
   return (
-    // Code for Content
-    // <Content />
     <div>
-      <Temperature tempTemperature={tempInContent} />
+      <Temperature tempTemperature={tempContent} />
     </div>
   );
 }
 
-function Temperature(props) {
-  const tempInTemperature = props.tempTemperature;
+function Temperature({ tempTemperature }) {
   return (
-    // Code for Temperature
-    // <Temperature />
     <div id="temperature">
-      <span>{tempInTemperature} Oc</span>
+      <span>{tempTemperature} °C</span>
     </div>
   );
 }
 
-function Footer() {
+function Footer({ setTemperature, temperature }) {
   return (
-    // Code for Footer
-    // <Footer />
     <footer>
-      <button>Up</button>
-      <button>Down</button>
+      <button onClick={() => setTemperature(temperature + 1)}>Up</button>
+      <button onClick={() => setTemperature(temperature - 1)}>Down</button>
     </footer>
   );
 }
